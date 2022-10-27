@@ -10,7 +10,7 @@ function Header() {
       <div className="header">
         <div className="header__logo">
           <StoreIcon className="header__logoImage" fontSize="large" />
-          <h1 className="header__logoTitle">eSHop</h1>
+          <h2 className="header__logoTitle">eSHop</h2>
         </div>
         <div className="header__search">
           <input type="text" className="header__searchInput" />
@@ -26,7 +26,7 @@ function Header() {
             <span className="nav__itemLinetwo">Shop</span>
           </div>
           <div className="nav__itemBasket">
-            <ShoppingBasketIcon />
+            <ShoppingBasketIcon className="itemBasket" fontSize="medum" />
             <span className="nav__itemLinetwo nav__basketCount">0</span>
           </div>
         </div>
