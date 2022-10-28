@@ -1,9 +1,11 @@
 import "./Home.css";
 import Product from "./Product";
+import { Outlet } from "react-router-dom";
 
 function Home() {
   return (
     <div className="home">
+      <Outlet />
       <img
         src="https://www.x-cart.com/wp-content/uploads/2019/01/ecommerce-768x278.jpg"
         alt=""
