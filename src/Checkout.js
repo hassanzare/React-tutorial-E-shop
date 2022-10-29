@@ -1,11 +1,14 @@
+import React from "react";
 import "./Checkout.css";
-import { Outlet } from "react-router-dom";
 import CheckoutProduct from "./CheckoutProduct";
 import Subtotal from "./Subtotal.js";
+import { useStateValue } from "./StateProvider";
+import { Outlet } from "react-router-dom";
 
 function Checkout() {
+  const [{ basket }, dispatch] = useStateValue();
   return (
-    <div>
+    <>
       <Outlet />
       <div className="checkout">
         <div className="checkout__left">
@@ -15,21 +18,24 @@ function Checkout() {
             className="checkout__ad"
           />
           <div>
-            <h1 className="checkout__title">Your Shoping Basket</h1>
-            <CheckoutProduct
-              id={1}
-              title="Bennett Mystic 15.6 inch Laptop Shoulder Messenger Sling Office Bag, Water Repellent Fabric for Men and Women (Blue)"
-              price={11.3}
-              rating={3}
-              image="https://images-na.ssl-images-amazon.com/images/I/71mEsHyzSCL._SL1000_.jpg"
-            />
+            <h2 className="checkout__title">Your Shopping Basket</h2>
+            {basket.map((item) => (
+              <CheckoutProduct
+                id={item.id}
+                image={item.image}
+                title={item.title}
+                price={item.price}
+                rating={item.rating}
+              />
+            ))}
           </div>
         </div>
+
         <div className="checkout__right">
           <Subtotal />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
